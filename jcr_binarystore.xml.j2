@@ -1,0 +1,20 @@
+
+<config version="2">
+    <chain template="cluster-s3-storage-v3"/>
+    <provider id="cache-fs" type="cache-fs">
+        <maxCacheSize>10e+10</maxCacheSize>
+        <cacheProviderDir>cache</cacheProviderDir>
+    </provider>
+    <provider id="s3-storage-v3" type="s3-storage-v3">
+        <testConnection>false</testConnection>
+        <endpoint></endpoint>
+        <bucketName>{{ s3_bucket }}</bucketName>
+        <path>artifactory/filestore</path>
+        <region>{{ s3_region }}</region>
+        <identity>{{ s3_access_key }}</identity>
+        <credential>{{ s3_access_secret_key }}</credential>
+        <useInstanceCredentials>false</useInstanceCredentials>
+        <usePresigning>false</usePresigning>
+        <signatureExpirySeconds>300</signatureExpirySeconds>
+    </provider>
+</config>
