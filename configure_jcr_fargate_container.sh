@@ -11,7 +11,7 @@ wget "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_a
 echo "Making it Executable"  | tee ${startup_log}
 chmod +x ${YQ}
 echo "Creating System YAML file" | tee ${startup_log}
-${YQ} n shared.node.primary ${HA_IS_PRIMARY} | tee ${system_temp}
+${YQ} n shared.node.taskAffinity ${HA_IS_PRIMARY} | tee ${system_temp}
 ${YQ} w -i ${system_temp} configVersion 1
 ${YQ} w -i ${system_temp} -- shared.extraJavaOpts "${EXTRA_JAVA_OPTIONS}"
 if [ -z "$HA_ENABLED" ]
