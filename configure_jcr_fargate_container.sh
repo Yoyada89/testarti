@@ -27,8 +27,7 @@ ${YQ} w -i ${system_temp} shared.database.url ${DB_URL}
 ${YQ} w -i ${system_temp} shared.database.username ${DB_USER}
 ${YQ} w -i ${system_temp} shared.database.password ${DB_PASSWORD}
 
-echo "mc:" >> ${system_temp}
-echo "    enabled: true" >> ${system_temp}
+
 
 echo "Moving system file to proper location" | tee ${startup_log}
 mv ${system_temp} /var/opt/jfrog/artifactory/etc/
